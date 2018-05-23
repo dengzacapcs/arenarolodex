@@ -1,5 +1,16 @@
 $(function() {
-	for (var i = 1; i<=8; i++){
+	//Display the news
+
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if (this.readyState == 4 && this.status == 200){
+			$('#instructions').after(this.responseText);
+		}
+	};
+	xhttp.open("GET", "https://gist.githubusercontent.com/epixtallion/55ea460b3ba4c911b1e6e82304305a1f/raw", true);
+	xhttp.send();
+
+	for (var i = 1; i <= 8; i++){
 		var choice = "<div>" +
 	                "<select id=\"category" + i + "\">" +
 	                    "<option selected value=\"base\">Please Select</option>" +
@@ -15,23 +26,23 @@ $(function() {
 	                    "</select>" +
 	                "<br>" +
 	                "<label>Choose a class from the list:" +
-	                    "<select id=\"block"+i+"\" name=\"block"+i+"\"></select></label>" +
+	                    "<select id=\"block" + i + "\" name=\"block" + i + "\"></select></label>" +
 	                "<label>Preferred teacher?" +
-	                    "<select id=\"teach"+i+"\" name=\"teach"+i+"\"></select></label>" +
+	                    "<select id=\"teach" + i + "\" name=\"teach" + i + "\"></select></label>" +
 	                "<label>Preferred block?" +
-	                    "<select id=\"pref"+i+"\" name=\"pref"+i+"\"></select></label>" +
+	                    "<select id=\"pref" + i + "\" name=\"pref" + i + "\"></select></label>" +
 	                "<br>" +
 	            "</div>";
 		$('form').prepend(choice);
-		$('#block'+i).append("<option selected>Choose a course...</option>");
-		$('#teach'+i).append("<option selected>Choose a teacher...</option>");
-		$('#pref'+i).append("<option selected>Choose a block...</option>");
+		$('#block' + i).append("<option selected value=\"\">Choose a course...</option>");
+		$('#teach' + i).append("<option selected value=\"\">Choose a teacher...</option>");
+		$('#pref' + i).append("<option selected value=\"\">Choose a block...</option>");
 	}
 
 
 	var i;
-	for (i = 1; i<=8; i++){
-		$("#category"+i).on("change", { value: i }, function(event) {
+	for (i = 1; i <= 8; i++){
+		$("#category" + i).on("change", { value: i }, function(event) {
 
 			var $dropdown = $(this);
 
@@ -62,8 +73,8 @@ $(function() {
 			});
 		});
 
-		$("#block"+i).on("change", { value: i }, function(event) {
-			console.log("Switched "+$(this).val());
+		$("#block" + i).on("change", { value: i }, function(event) {
+			console.log("Switched " + $(this).val());
 
 			var $dropdown = $(this);
 
@@ -88,8 +99,8 @@ $(function() {
 			});
 		});
 
-		$("#teach"+i).on("change", { value: i }, function(event) {
-			console.log("Switched "+$(this).val());
+		$("#teach" + i).on("change", { value: i }, function(event) {
+			console.log("Switched " + $(this).val());
 
 			var $dropdown = $(this);
 

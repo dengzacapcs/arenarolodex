@@ -6,6 +6,19 @@
 
 * { margin: 0; padding: 0; }
 body { font: 14px Georgia, serif; }
+div { margin: 0 0 2vmin 0; }
+#instructions {
+  margin: 2vh 0 2vh 5vmin;
+  width: 50vw;
+}
+.news{
+  margin-left: 2vmin;
+  font-family: sans-serif;
+  width: 70vw;
+}
+.news h3 {
+  color: red;
+}
 
 article, aside, figure, footer, header, hgroup,
 menu, nav, section { display: block; }
