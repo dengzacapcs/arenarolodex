@@ -7,7 +7,7 @@ $(function() {
 			$('#instructions').after(this.responseText);
 		}
 	};
-	xhttp.open("GET", "https://gist.githubusercontent.com/epixtallion/55ea460b3ba4c911b1e6e82304305a1f/raw", true);
+	xhttp.open("GET", "https://gist.githubusercontent.com/epixtallion/55ea460b3ba4c911b1e6e82304305a1f/raw/", true);
 	xhttp.send();
 
 	for (var i = 1; i <= 8; i++){
