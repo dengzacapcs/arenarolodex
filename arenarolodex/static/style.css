@@ -5,7 +5,7 @@
 */
 
 * { margin: 0; padding: 0; }
-body { font: 14px Georgia, serif; }
+body { font: 14px Georgia, serif; overflow-x: hidden;}
 div { margin: 0 0 2vmin 0; }
 #instructions {
   margin: 2vh 0 2vh 5vmin;
@@ -18,6 +18,14 @@ div { margin: 0 0 2vmin 0; }
 }
 .news h3 {
   color: red;
+}
+
+footer {
+  width: 100vw;
+  text-align: center;
+  font-size: 3vmin;
+  margin-top: 10vh;
+  margin-bottom: 3vh;
 }
 
 article, aside, figure, footer, header, hgroup,
