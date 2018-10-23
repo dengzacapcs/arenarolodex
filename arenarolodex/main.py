@@ -5,14 +5,15 @@ import json
 import logging
 import os
 import pandas as pd
-from flask import Flask, request, render_template, url_for, send_from_directory, jsonify
+from flask import Flask, request, render_template, url_for, send_from_directory, jsonify, Response
+from io import StringIO
 from arenarolodex import app
 
 from lhsrequest import update_options2
 
 logging.basicConfig(level=logging.DEBUG)
 
-# @app.route('/results', methods = ['GET', 'POST'])
+@app.route('/results', methods = ['GET', 'POST'])
 def index_post(request):
     update_options2()
 
@@ -21,9 +22,9 @@ def index_post(request):
         mylist.append(request.form['block' + str(i)])
         teachers.append(request.form['teach' + str(i)])
         blocks.append(request.form['pref' + str(i)])
-        print(request.form['block' + str(i)])
-        print(request.form['teach' + str(i)])
-        print(request.form['pref' + str(i)])
+        # print(request.form['block' + str(i)])
+        # print(request.form['teach' + str(i)])
+        # print(request.form['pref' + str(i)])
 
     # This holds the preferred teachers and blocks for each class
     courseguide = []
@@ -158,5 +159,13 @@ def index_post(request):
         filename = 'filelanding.csv'
         data = pd.read_csv(filename, delimiter=',')
 
-        data.to_csv('fileoutput.csv')
-        return render_template('landing.html')
+        # data.to_csv('fileoutput.csv')
+        # return render_template('landing.html')
+
+        def output_csv(frame):
+            outputter = StringIO.StringIO()
+            frame.to_csv(outputter)
+
+            return Response(outputter.getValue(), mimetype="text/csv")
+
+        return output_csv(data)
