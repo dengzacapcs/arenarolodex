@@ -12,8 +12,8 @@ from lhsrequest import update_options2
 
 logging.basicConfig(level=logging.DEBUG)
 
-@app.route('/results', methods = ['GET', 'POST'])
-def index_post():
+# @app.route('/results', methods = ['GET', 'POST'])
+def index_post(request):
     update_options2()
 
     mylist, teachers, blocks = [], [], []
