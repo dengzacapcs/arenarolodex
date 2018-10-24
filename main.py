@@ -7,7 +7,7 @@ import os
 import pandas as pd
 from flask import Flask, request, render_template, url_for, send_from_directory, jsonify, Response
 from io import StringIO
-from arenarolodex import app
+# from arenarolodex import app
 
 # from lhsrequest import update_options2
 
