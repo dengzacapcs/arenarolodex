@@ -8,7 +8,7 @@ arenarolodex/__pycache__/*
 src/
 courselist.json
 options.json
-options2.csv
+# options2.csv
 
 
 # GitHub suggested gitignore below
