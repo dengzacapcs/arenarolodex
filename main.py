@@ -9,13 +9,13 @@ from flask import Flask, request, render_template, url_for, send_from_directory,
 from io import StringIO
 from arenarolodex import app
 
-from lhsrequest import update_options2
+# from lhsrequest import update_options2
 
 logging.basicConfig(level=logging.DEBUG)
 
-@app.route('/results', methods = ['GET', 'POST'])
+# @app.route('/results', methods = ['GET', 'POST'])
 def index_post(request):
-    update_options2()
+    # update_options2()
 
     mylist, teachers, blocks = [], [], []
     for i in range(1,9):
