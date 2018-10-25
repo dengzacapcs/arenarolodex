@@ -11,6 +11,8 @@ from io import StringIO
 
 # from lhsrequest import update_options2
 
+app = Flask(__name__)
+
 logging.basicConfig(level=logging.DEBUG)
 
 # @app.route('/results', methods = ['GET', 'POST'])
@@ -169,3 +171,8 @@ def index_post(request):
             return Response(outputter.getValue(), mimetype="text/csv")
 
         return output_csv(data)
+
+
+if __name__ == "__main__":
+    app.debug = True
+    app.run()
