@@ -18,6 +18,14 @@ logging.basicConfig(level=logging.DEBUG)
 # @app.route('/results', methods = ['GET', 'POST'])
 def index_post(request):
     # update_options2()
+    # content_type = request.headers['content-type']
+
+    request_json = request.get_json(silent = True)
+    request_args = request.args
+
+
+
+
 
     mylist, teachers, blocks = [], [], []
     for i in range(1,9):
